@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    container_name: saas_db
+    image: mysql:8.0
+    command:
+      - --general-log=true
+      - --general-log-file=/var/tmp/general.log
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./dump:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_ROOT_PASSWORD: "password"
