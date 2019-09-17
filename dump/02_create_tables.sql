@@ -16,3 +16,13 @@ CREATE TABLE `saas_kpi_db`.`events` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `saas_kpi_db`.`payments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paymentType` varchar(255) NOT NULL,
+  `originalId` varchar(255) NOT NULL,
+  `transactionId` varchar(255) NOT NULL,
+  `purchasedAt` datetime NOT NULL,
+  `expiresAt` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
